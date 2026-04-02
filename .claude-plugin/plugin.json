@@ -1,0 +1,8 @@
+{
+  "name": "hivemind",
+  "version": "0.1.0",
+  "description": "Persistent autonomous agent network — inter-agent communication, background daemon, cross-session learning, desktop control. Capabilities Claude Code does not natively have.",
+  "author": {
+    "name": "Alex Carney"
+  }
+}

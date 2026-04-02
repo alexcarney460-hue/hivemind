@@ -1,0 +1,60 @@
+{
+  "description": "Hivemind hooks — cross-session learning extraction and application",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/session_start.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/session_stop.py",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "A subagent just completed work. Review what it accomplished. If it discovered something non-obvious — a workaround, a gotcha, a pattern, a project-specific fact — that would help OTHER agents in future sessions, run: sqlite3 ~/hivemind.db \"INSERT INTO learnings (category, rule, context, source_session, confidence) VALUES ('<category>', '<the learning>', '<context>', 'auto:subagent', 0.7)\" and also: sqlite3 ~/hivemind.db \"INSERT INTO messages (sender, recipient, channel, content, msg_type) VALUES ('auto:subagent', '*', 'learnings', 'AUTO-LEARNED: <the learning>', 'learning')\" — Only store genuinely useful discoveries, not obvious things. If nothing was learned, do nothing.",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/order_injector.py",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/learn_from_correction.py",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

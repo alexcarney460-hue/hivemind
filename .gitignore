@@ -1,0 +1,8 @@
+hivemind.db
+*.pid
+*.pyc
+__pycache__/
+.hivemind_last_check
+hivemind-logs/
+hivemind-screenshots/
+hivemind-deploy-kit-*/
