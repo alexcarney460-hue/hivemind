@@ -104,7 +104,15 @@ sqlite3 -header -column ~/hivemind.db "SELECT sender, content, created_at FROM m
 sqlite3 ~/hivemind.db "UPDATE messages SET read_at=CURRENT_TIMESTAMP WHERE read_at IS NULL"
 ```
 
+### `/hivemind sync`
+Sync messages, orders, and learnings with other devices via OneDrive:
+```bash
+python3 ~/.openclaw/workspace/claude-code/plugins/hivemind/scripts/sync.py sync --shared ~/OneDrive/hivemind-sync
+```
+This exports local data to a JSON file in OneDrive, then imports any new data from other devices. Run on both machines to complete a sync cycle.
+
 ## Execution Notes
 - Always use `sqlite3 ~/hivemind.db` for all database operations
 - Escape single quotes in SQL by doubling them
 - If hivemind.db doesn't exist, run: `python3 ~/.openclaw/workspace/claude-code/plugins/hivemind/scripts/init_db.py`
+- For multi-device sync, each device keeps its OWN hivemind.db. Use `/hivemind sync` to exchange data via OneDrive.
