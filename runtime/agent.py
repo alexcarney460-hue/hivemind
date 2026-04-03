@@ -32,7 +32,8 @@ from pathlib import Path
 # ── Config ──
 SUPABASE_URL = "https://urhacndintzremgspbcu.supabase.co"
 SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVyaGFjbmRpbnR6cmVtZ3NwYmN1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ0MDEwNzEsImV4cCI6MjA4OTk3NzA3MX0.sDnsVtjvxjds8wtDxiAdy-9RySFdIOrMfKnSss-ENBM"
-CLAUDE_BIN = os.environ.get("CLAUDE_BIN", "claude")
+_default_claude = "claude.cmd" if os.name == "nt" else "claude"
+CLAUDE_BIN = os.environ.get("CLAUDE_BIN", _default_claude)
 LOG_DIR = os.path.expanduser("~/.openclaw/workspace/hivemind-logs")
 PLUGIN_DIR = os.path.expanduser("~/.openclaw/workspace/claude-code/plugins/hivemind")
 CYCLE_TIMEOUT = 600  # 10 min max per cycle
