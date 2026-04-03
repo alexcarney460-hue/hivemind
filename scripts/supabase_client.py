@@ -116,7 +116,7 @@ def cmd_inbox(args):
         print("No unread messages.")
         return
     for m in result:
-        print(f"[{m['sender']} → {m['recipient']}] (pri:{m['priority']}) {m['content']}")
+        print(f"[{m['sender']} > {m['recipient']}] (pri:{m['priority']}) {m['content']}")
         print(f"  {m['created_at']}")
         print()
     # Mark as read
