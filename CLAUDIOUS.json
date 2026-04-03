@@ -1,6 +1,6 @@
 {
   "source": "CLAUDIOUS",
-  "timestamp": "2026-04-02T17:27:56.384293",
+  "timestamp": "2026-04-02T18:14:39.717505",
   "messages": [
     {
       "id": 3,
@@ -40,6 +40,23 @@
     }
   ],
   "orders": [
+    {
+      "id": 4,
+      "issued_by": "ALPHA",
+      "assigned_to": "BRAVO",
+      "order_type": "task",
+      "priority": "high",
+      "objective": "Scrape dentist offices across the United States",
+      "details": "Use Brave Search API to scrape dentist office listings nationwide. Collect: business name, address, city, state, zip, phone, email, website. Insert all results into the ValueSuppliers Supabase CRM (project: hpakqrnvjnzznhffoqaf). Store as leads/contacts with source=scrape_dentist_2026-04-02.",
+      "constraints": "Use Brave Search API (NOT Google Places). Supabase token for acct3 (alexcarney460). Batch by state/metro area for coverage. Quality over quantity \ufffd verified data only.",
+      "deadline": null,
+      "status": "issued",
+      "accepted_at": null,
+      "completed_at": null,
+      "report": null,
+      "parent_order_id": null,
+      "created_at": "2026-04-03 00:46:01"
+    },
     {
       "id": 3,
       "issued_by": "ALPHA",
@@ -235,7 +252,7 @@
       "name": "ValueSuppliers",
       "callsign": "BRAVO",
       "role": null,
-      "rank": "general",
+      "rank": "colonel",
       "rank_level": 6,
       "reports_to": "ALPHA",
       "division": "operations",
@@ -256,7 +273,7 @@
       "name": "OpenClaw Mobile",
       "callsign": "CHARLIE",
       "role": null,
-      "rank": "colonel",
+      "rank": "private",
       "rank_level": 5,
       "reports_to": "ALPHA",
       "division": "intelligence",
@@ -277,7 +294,7 @@
       "name": "CLAUDIOUS:048c991a",
       "callsign": null,
       "role": "worker",
-      "rank": "private",
+      "rank": "general",
       "rank_level": 1,
       "reports_to": null,
       "division": "general",
